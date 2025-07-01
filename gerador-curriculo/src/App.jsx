@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
+import EducationForm from "./components/EducationForm";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -8,6 +9,10 @@ function App() {
     telefone: '',
     endereco: '',
   });
+
+  const [educations, setEducations] = useState([
+    {curso: '', instituicao: '', conclusao: ''}
+  ]);
 
   return (
     <div>
@@ -19,6 +24,11 @@ function App() {
       <PersonalInfo 
         personalData={personalData}
         setPersonalData={setPersonalData}
+      />
+
+      <EducationForm
+        educations={educations}
+        setEducations={setEducations}
       />
 
     </div>
