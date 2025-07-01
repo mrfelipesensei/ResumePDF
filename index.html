@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Currículo</title>
+</head>
+<body>
+    <h1>Gerador de Currículo</h1>
+    <p>Bem-vindo ao Gerador de Currículo!</p>
+    <p>É muito fácil: basta digitar suas informações que geramos seu currículo em PDF!</p>
+    <p>Prático e Rápido, confira:</p>
+    <div>
+        <form method="POST" action="/gerar-curriculo">
+            <div class="personal_data">
+                <h2>Informações Pessoais</h2>
+                <label for="nome">Digite seu Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Nome Sobrenome">
+                <br>
+                <label for="email">Seu Email:</label>
+                <input type="email" name="email" id="email" placeholder="seuemail@email.com">
+                <br>
+                <label for="telefone">Seu Telefone:</label>
+                <input type="tel" name="telefone" id="telefone" placeholder="(XX) XXXXX-XXXX">
+
+                <!--Aqui adicionarei a lógica de endereço opcional com React-->
+            </div>
+            <div class="education">
+                <h2>Formação Acadêmica</h2>
+                <label for="nome_curso">Nome do Curso:</label>
+                <input type="text" name="nome_curso" id="nome_curso">
+                <br>
+                <label for="instituicao">Instituição</label>
+                <input type="text" name="instituicao" id="instituicao">
+                <br>
+                <label for="conclusao">Conclusão</label>
+                <input type="month" name="conclusao" id="conclusao" placeholder="Mês/Ano">
+                <br>
+                <!--Aplicar lógica com React posteriormente do botão para gerar uma nova caixa div de Formação Acadêmica-->
+                <button type="button">Adicionar Formação +</button>
+            </div>
+            <div class="experience">
+                <h2>Experiência Profissional</h2>
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" id="cargo">
+                <br>
+                <label for="empresa">Empresa:</label>
+                <input type="text" name="empresa" id="empresa">
+                <br>
+                <label for="periodo">Período (de → até):</label>
+                <input type="month" name="periodo" id="periodo" placeholder="Mês/Ano até Mês/Ano">
+                <br>
+                <label for="descricao">Descrição:</label>
+                <br>
+                <textarea name="descricao" id="descricao" maxlength="140" minlength="70" rows="10" cols="40" placeholder="Descreva em até 140 caracteres..."></textarea>
+                <br>
+                <button type="button">Adicionar experiência +</button>
+            </div>
+        </form>
+    </div>    
+</body>
+</html>
