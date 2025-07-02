@@ -27,10 +27,10 @@ function App() {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/gerar-curriculo', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/gerar-curriculo", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(dados)
       });
@@ -43,8 +43,10 @@ function App() {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.downlad = 'curriculo.pdf';
+      link.download = 'curriculo.pdf';
+      document.body.appendChild(link);
       link.click();
+      link.remove();
     } catch (err) {
       alert('Erro ao gerar currículo: ' +err.message);
     }
