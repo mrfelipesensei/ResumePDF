@@ -19,6 +19,37 @@ function App() {
     {cargo: '', empresa: '', periodo: '', descricao: ''}
   ]);
 
+  const handleSubmit = async () => {
+    const dados = {
+      personalData,
+      educations,
+      experiences
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/gerar-curriculo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+      });
+
+      if(!response.ok) {
+        throw new Error('Erro ao gerar currículo');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.downlad = 'curriculo.pdf';
+      link.click();
+    } catch (err) {
+      alert('Erro ao gerar currículo: ' +err.message);
+    }
+  };
+
   return (
     <div>
       <h1>Gerador de Currículos</h1>
@@ -40,7 +71,10 @@ function App() {
        experiences={experiences}
        setExperiences={setExperiences}
       />
-
+    
+      <button type="button" onClick={handleSubmit}>
+        Gerrar Currículo em PDF
+      </button>
     </div>
   );
 }

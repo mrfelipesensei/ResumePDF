@@ -16,7 +16,7 @@ function ExperienceForm({experiences, setExperiences}) {
     };
 
     const removeExperience = (index) => {
-        const updated = educations.filter((_,i) => i !== index);
+        const updated = experiences.filter((_,i) => i !== index);
         setExperiences(updated);
     };
 
