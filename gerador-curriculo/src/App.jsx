@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import EducationForm from "./components/EducationForm";
+import ExperienceForm from "./components/ExperienceForm";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -12,6 +13,10 @@ function App() {
 
   const [educations, setEducations] = useState([
     {curso: '', instituicao: '', conclusao: ''}
+  ]);
+
+  const [experiences, setExperiences] = useState([
+    {cargo: '', empresa: '', periodo: '', descricao: ''}
   ]);
 
   return (
@@ -29,6 +34,11 @@ function App() {
       <EducationForm
         educations={educations}
         setEducations={setEducations}
+      />
+
+      <ExperienceForm
+       experiences={experiences}
+       setExperiences={setExperiences}
       />
 
     </div>
